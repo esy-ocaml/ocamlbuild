@@ -34,3 +34,8 @@ Makefile.config
 /man/ocamlbuild.1
 /man/ocamlbuild.options.1
 /man/options_man.byte
+
+/yarn.lock
+/node_modules
+/_build
+/_install

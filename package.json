@@ -1,0 +1,57 @@
+{
+  "name": "@opam-alpha/ocamlbuild",
+  "version": "0.11.0-esy",
+  "dependencies": {
+    "substs": "esy-ocaml/substs",
+    "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+  },
+  "peerDependencies": {
+    "ocaml": " >= 4.3.0"
+  },
+  "devDependencies": {
+    "ocaml": "esy-ocaml/ocaml#4.4.2+esy"
+  },
+  "esy": {
+    "build": [
+      [
+        "make",
+        "-f",
+        "configure.make",
+        "all",
+        "OCAMLBUILD_PREFIX=$cur__install",
+        "OCAMLBUILD_BINDIR=$cur__bin",
+        "OCAMLBUILD_LIBDIR=$cur__lib",
+        "OCAMLBUILD_MANDIR=$cur__man",
+        "OCAML_NATIVE=true",
+        "OCAML_NATIVE_TOOLS=true"
+      ],
+      [
+        "make",
+        "check-if-preinstalled",
+        "all",
+        "opam-install"
+      ],
+      [
+        "sh",
+        "-c",
+        "(opam-installer --prefix=$cur__install || true)"
+      ]
+    ],
+    "exportedEnv": {
+      "ocamlbuild_version": {
+        "val": "0.11.0-esy",
+        "scope": "global"
+      },
+      "ocamlbuild_installed": {
+        "val": "true",
+        "scope": "global"
+      },
+      "ocamlbuild_enable": {
+        "val": "enable",
+        "scope": "global"
+      }
+    },
+    "buildsInSource": true
+  },
+  "_esy_opam_patches": []
+}
