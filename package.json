@@ -30,6 +30,9 @@
         "check-if-preinstalled",
         "all",
         "opam-install"
+      ],
+      [
+        "esy-installer"
       ]
     ],
     "exportedEnv": {
